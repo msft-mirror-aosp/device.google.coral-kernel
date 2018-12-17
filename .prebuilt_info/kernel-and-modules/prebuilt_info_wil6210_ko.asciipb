@@ -1,0 +1,11 @@
+drops {
+  android_build_drop {
+    build_id: "5093519"
+    target: "kernel"
+    source_file: "wil6210.ko"
+  }
+  dest_file: "wil6210.ko"
+  version: "Linux version 4.14.62-g65aff52-ab5093519 (android-build@abfarm655) (Android clang version 5.0.1 (https://us3-mirror-android.googlesource.com/toolchain/clang 00e4a5a67eb7d626653c23780ff02367ead74955) (https://us3-mirror-android.googlesource.com/toolchain/llvm ef376ecb7d9c1460216126d102bb32fc5f73800d) (based on LLVM 5.0.1svn)) #1 SMP PREEMPT Fri Oct 26 05:27:24 UTC 2018"
+  version_group: "kernel-and-modules"
+  git_project: "device/google/coral-kernel"
+}
