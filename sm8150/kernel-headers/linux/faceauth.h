@@ -33,6 +33,11 @@ struct faceauth_start_data {
   __u32 image_dot_right_size;
   __u8 * image_flood;
   __u32 image_flood_size;
+  __u8 has_calib;
+  void * calib_intrinsics;
+  __u32 calib_intrinsics_size;
+  void * calib_transform;
+  __u32 calib_transform_size;
 } __attribute__((packed));
 struct faceauth_continue_data {
   __u8 completed;
