@@ -25,6 +25,7 @@
 #define FACEAUTH_OP_VALIDATE 2
 #define FACEAUTH_RESULT_SUCCESS 0
 #define FACEAUTH_RESULT_FAILURE 1
+#define FACEAUTH_ERROR_NO_ERROR 0
 struct faceauth_start_data {
   __u32 operation;
   __u8 * image_dot_left;
@@ -42,6 +43,8 @@ struct faceauth_start_data {
 struct faceauth_continue_data {
   __u8 completed;
   __u8 result;
+  __s32 faceauth_error_code;
+  __u32 faceauth_fw_version;
 } __attribute__((packed));
 struct faceauth_debug_data {
   __u8 * print_buffer;
