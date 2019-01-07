@@ -62,6 +62,7 @@
 #define RMNET_IOCTL_SET_XLAT_DEV_INFO 0x0015
 #define RMNET_IOCTL_DEREGISTER_DEV 0x0016
 #define RMNET_IOCTL_GET_SG_SUPPORT 0x0017
+#define RMNET_IOCTL_SET_OFFLOAD 0x0018
 #define RMNET_IOCTL_FEAT_NOTIFY_MUX_CHANNEL (1 << 0)
 #define RMNET_IOCTL_FEAT_SET_EGRESS_DATA_FORMAT (1 << 1)
 #define RMNET_IOCTL_FEAT_SET_INGRESS_DATA_FORMAT (1 << 2)
@@ -81,6 +82,9 @@
 #define RMNET_IOCTL_INGRESS_FORMAT_DEMUXING (1 << 3)
 #define RMNET_IOCTL_INGRESS_FORMAT_CHECKSUM (1 << 4)
 #define RMNET_IOCTL_INGRESS_FORMAT_AGG_DATA (1 << 5)
+#define RMNET_IOCTL_OFFLOAD_FORMAT_NONE (0)
+#define RMNET_IOCTL_COALESCING_FORMAT_TCP (1 << 0)
+#define RMNET_IOCTL_COALESCING_FORMAT_UDP (1 << 1)
 #ifndef IFNAMSIZ
 #define IFNAMSIZ 16
 #endif
@@ -106,6 +110,10 @@ struct rmnet_ioctl_extended_s {
       uint32_t agg_size;
       uint32_t agg_count;
     } ingress_format;
+    struct {
+      uint32_t flags;
+      uint8_t mux_id;
+    } offload_params;
   } u;
 };
 struct rmnet_ioctl_data_s {
