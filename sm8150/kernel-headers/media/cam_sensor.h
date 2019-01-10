@@ -210,6 +210,12 @@ struct cam_sensor_streamon_dev {
   uint32_t reserved;
   uint64_t info_handle;
 } __attribute__((packed));
+struct cam_cmd_get_sensor_data {
+  uint32_t reg_addr;
+  uint32_t reg_data;
+  uint64_t query_size_handle;
+  uint64_t query_data_handle;
+} __attribute__((packed));
 struct cam_flash_init {
   uint8_t flash_type;
   uint16_t reserved;
