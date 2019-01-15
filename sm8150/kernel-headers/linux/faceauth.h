@@ -23,11 +23,13 @@
 #define FACEAUTH_OP_ERASE 0
 #define FACEAUTH_OP_ENROLL 1
 #define FACEAUTH_OP_VALIDATE 2
+#define FACEAUTH_OP_ENROLL_COMPLETE 3
 #define FACEAUTH_RESULT_SUCCESS 0
 #define FACEAUTH_RESULT_FAILURE 1
 #define FACEAUTH_ERROR_NO_ERROR 0
 struct faceauth_start_data {
-  __u32 operation;
+  __u8 profile_id;
+  __u8 operation;
   __u8 * image_dot_left;
   __u32 image_dot_left_size;
   __u8 * image_dot_right;
@@ -43,6 +45,7 @@ struct faceauth_start_data {
 struct faceauth_continue_data {
   __u8 completed;
   __u8 result;
+  __u32 bin_bitmap;
   __s32 faceauth_error_code;
   __u32 faceauth_fw_version;
 } __attribute__((packed));

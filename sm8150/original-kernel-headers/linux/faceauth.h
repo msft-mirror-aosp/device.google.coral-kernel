@@ -23,6 +23,7 @@
 #define FACEAUTH_OP_ERASE 0
 #define FACEAUTH_OP_ENROLL 1
 #define FACEAUTH_OP_VALIDATE 2
+#define FACEAUTH_OP_ENROLL_COMPLETE 3
 
 /* Keep it in sync with faceauth firmware */
 #define FACEAUTH_RESULT_SUCCESS 0
@@ -35,7 +36,8 @@ struct faceauth_start_data {
 	/*
 	 * Operation requested by user, see FACEAUTH_OP_*
 	 */
-	__u32 operation;
+	__u8 profile_id;
+	__u8 operation;
 
 	__u8 *image_dot_left;
 	__u32 image_dot_left_size;
@@ -46,7 +48,7 @@ struct faceauth_start_data {
 	__u8 *image_flood;
 	__u32 image_flood_size;
 
-	__u8 has_calib;  /* true if calib_{intrinsics,transform} exist */
+	__u8 has_calib; /* true if calib_{intrinsics,transform} exist */
 
 	void *calib_intrinsics;
 	__u32 calib_intrinsics_size;
@@ -59,6 +61,7 @@ struct faceauth_start_data {
 struct faceauth_continue_data {
 	__u8 completed; /* is faceauth process completed? */
 	__u8 result; /* FACEAUTH_RESULT_* */
+	__u32 bin_bitmap;
 	__s32 faceauth_error_code; /* ab-faceauth error code */
 	__u32 faceauth_fw_version; /* ab-faceauth firmware version */
 } __attribute__((packed));
