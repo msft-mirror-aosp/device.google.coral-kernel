@@ -38,21 +38,17 @@ struct faceauth_start_data {
   __u32 image_flood_size;
   void * calibration;
   __u32 calibration_size;
-} __attribute__((packed));
-struct faceauth_continue_data {
-  __u8 completed;
   __u8 result;
   __u32 bin_bitmap;
-  __s32 faceauth_error_code;
-  __u32 faceauth_fw_version;
+  __s32 error_code;
+  __u32 fw_version;
 } __attribute__((packed));
 struct faceauth_debug_data {
   __u8 * print_buffer;
   __u32 print_buffer_size;
 } __attribute__((packed));
 #define FACEAUTH_DEV_IOC_INIT _IO('f', 1)
-#define FACEAUTH_DEV_IOC_START _IOW('f', 2, struct faceauth_start_data)
-#define FACEAUTH_DEV_IOC_CONTINUE _IOR('f', 3, struct faceauth_continue_data)
+#define FACEAUTH_DEV_IOC_START _IOWR('f', 2, struct faceauth_start_data)
 #define FACEAUTH_DEV_IOC_CLEANUP _IO('f', 4)
 #define FACEAUTH_DEV_IOC_DEBUG _IOR('f', 5, struct faceauth_debug_data)
 #endif
