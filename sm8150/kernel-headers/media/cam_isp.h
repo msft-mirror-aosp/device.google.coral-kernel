@@ -79,6 +79,7 @@
 #define CAM_ISP_GENERIC_BLOB_TYPE_BW_CONFIG 2
 #define CAM_ISP_GENERIC_BLOB_TYPE_UBWC_CONFIG 3
 #define CAM_ISP_GENERIC_BLOB_TYPE_CSID_CLOCK_CONFIG 4
+#define CAM_ISP_GENERIC_BLOB_TYPE_FE_CONFIG 5
 struct cam_isp_dev_cap_info {
   uint32_t hw_type;
   uint32_t reserved;
@@ -188,6 +189,23 @@ struct cam_isp_bw_config {
   struct cam_isp_bw_vote left_pix_vote;
   struct cam_isp_bw_vote right_pix_vote;
   struct cam_isp_bw_vote rdi_vote[1];
+} __attribute__((packed));
+struct cam_fe_config {
+  uint64_t version;
+  uint32_t min_vbi;
+  uint32_t fs_mode;
+  uint32_t fs_line_sync_en;
+  uint32_t hbi_count;
+  uint32_t fs_sync_enable;
+  uint32_t go_cmd_sel;
+  uint32_t client_enable;
+  uint32_t source_addr;
+  uint32_t width;
+  uint32_t height;
+  uint32_t stride;
+  uint32_t format;
+  uint32_t unpacker_cfg;
+  uint32_t latency_buf_size;
 } __attribute__((packed));
 struct cam_isp_acquire_hw_info {
   uint16_t common_info_version;
