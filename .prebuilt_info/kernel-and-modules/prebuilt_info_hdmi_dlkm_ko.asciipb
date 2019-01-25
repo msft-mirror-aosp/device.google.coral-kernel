@@ -1,11 +1,11 @@
 drops {
   android_build_drop {
-    build_id: "5259990"
+    build_id: "5260253"
     target: "kernel"
     source_file: "hdmi_dlkm.ko"
   }
   dest_file: "hdmi_dlkm.ko"
-  version: "Linux version 4.14.83-g149e0e36b3bd-ab5259990 (android-build@wphp11.hot.corp.google.com) (A+"
+  version: "Linux version 4.14.83-gfcb7800-ab5260253 (android-build@abfarm776) (A"
   version_group: "kernel-and-modules"
   git_project: "device/google/coral-kernel"
 }
