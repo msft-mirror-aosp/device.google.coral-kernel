@@ -1,0 +1,11 @@
+drops {
+  android_build_drop {
+    build_id: "5275985"
+    target: "kernel_kasan"
+    source_file: "swr_ctrl_dlkm.ko"
+  }
+  dest_file: "kasan/swr_ctrl_dlkm.ko"
+  version: "Linux version 4.14.83-g0a88c3988cf9-ab5275985 (android-build@wprd11.hot.corp.google.com) (Android (5166481 based on r346389b) clang version 8.0.6 (https://android.googlesource.com/toolchain/clang b55f2d4ebfd35bf643d27dbca1bb228957008617) (https://android.googlesource.com/toolchain/llvm dfe553c721f995b34e6608bd6039cce877e7bb1b) (based on LLVM 8.0.6svn)) #1 SMP PREEMPT Fri Feb 1 06:13:56 UTC 2019"
+  version_group: "kernel-and-modules"
+  git_project: "device/google/coral-kernel"
+}
