@@ -30,6 +30,9 @@
 #define FACEAUTH_ERROR_NO_ERROR 0
 #define FACEAUTH_MAX_TASKS 32
 #define FACEAUTH_DEBUG_REGISTER_COUNT (24)
+struct faceauth_init_data {
+  __u64 features;
+} __attribute__((packed));
 struct faceauth_start_data {
   __u8 profile_id;
   __u8 operation;
@@ -92,7 +95,7 @@ struct faceauth_debug_entry {
   struct faceauth_debug_image flood;
   struct faceauth_airbrush_state ab_state;
 } __attribute__((packed));
-#define FACEAUTH_DEV_IOC_INIT _IO('f', 1)
+#define FACEAUTH_DEV_IOC_INIT _IOR('f', 1, struct faceauth_init_data)
 #define FACEAUTH_DEV_IOC_START _IOWR('f', 2, struct faceauth_start_data)
 #define FACEAUTH_DEV_IOC_CLEANUP _IO('f', 4)
 #define FACEAUTH_DEV_IOC_DEBUG _IOR('f', 5, struct faceauth_debug_data)
