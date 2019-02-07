@@ -1,11 +1,11 @@
 drops {
   android_build_drop {
-    build_id: "5282797"
+    build_id: "5288917"
     target: "kernel"
     source_file: "apr_dlkm.ko"
   }
   dest_file: "apr_dlkm.ko"
-  version: "Linux version 4.14.83-gc87192f-ab5282797 (android-build@abfarm909) (A"
+  version: "Linux version 4.14.83-g3e7d31c8fe7f-ab5288917 (android-build@wpre1.hot.corp.google.com) (A*"
   version_group: "kernel-and-modules"
   git_project: "device/google/coral-kernel"
 }
