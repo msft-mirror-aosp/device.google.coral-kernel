@@ -35,6 +35,7 @@
 struct faceauth_init_data {
   __u64 features;
 } __attribute__((packed));
+#define FACEAUTH_MAX_CACHE_FLUSH_SIZE 20
 struct faceauth_start_data {
   __u8 profile_id;
   __u8 operation;
@@ -46,8 +47,11 @@ struct faceauth_start_data {
   __u32 image_flood_size;
   void * calibration;
   __u32 calibration_size;
+  __s16 cache_flush_indexes[FACEAUTH_MAX_CACHE_FLUSH_SIZE];
+  __u32 cache_flush_size;
   __u8 result;
   __u32 bin_bitmap;
+  __u32 angles;
   __s32 error_code;
   __u32 fw_version;
 } __attribute__((packed));
