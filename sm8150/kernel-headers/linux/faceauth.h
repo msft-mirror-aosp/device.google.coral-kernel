@@ -39,6 +39,12 @@ struct faceauth_init_data {
 struct faceauth_start_data {
   __u8 profile_id;
   __u8 operation;
+  __u64 image_dot_left_fd;
+  __u64 image_dot_right_fd;
+  __u64 image_flood_fd;
+  __u64 calibration_fd;
+  __s16 cache_flush_indexes[FACEAUTH_MAX_CACHE_FLUSH_SIZE];
+  __u32 cache_flush_size;
   __u8 * image_dot_left;
   __u32 image_dot_left_size;
   __u8 * image_dot_right;
@@ -47,8 +53,6 @@ struct faceauth_start_data {
   __u32 image_flood_size;
   void * calibration;
   __u32 calibration_size;
-  __s16 cache_flush_indexes[FACEAUTH_MAX_CACHE_FLUSH_SIZE];
-  __u32 cache_flush_size;
   __u8 result;
   __u32 bin_bitmap;
   __u32 angles;
@@ -56,6 +60,7 @@ struct faceauth_start_data {
   __u32 fw_version;
 } __attribute__((packed));
 struct faceauth_debug_data {
+  __u64 buffer_fd;
   union {
     __u8 * debug_buffer;
     __u8 * print_buffer;
